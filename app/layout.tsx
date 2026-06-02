@@ -2,6 +2,7 @@ import type React from "react";
 import type { Metadata, Viewport } from "next";
 import { Syne, Cairo } from "next/font/google";
 import { AppWrapper } from "@/components/app-wrapper";
+import Script from "next/script";
 import "./globals.css";
 
 const syne = Syne({
@@ -19,10 +20,9 @@ const cairo = Cairo({
 });
 
 export const metadata: Metadata = {
-  title: "Made with App Studio",
-  description:
-    "Everything Market on Pi Network. Buy and sell anything worldwide using Pi cryptocurrency. Electronics, fashion, home, food, sports and more.",
-    generator: 'v0.app'
+  title: "em. - Everything Market on Pi Network",
+  description: "Everything Market on Pi Network. Buy and sell anything worldwide using Pi cryptocurrency.",
+  generator: 'v0.app'
 };
 
 export const viewport: Viewport = {
@@ -38,6 +38,9 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${syne.variable} ${cairo.variable}`}>
+      <head>
+        <Script src="https://sdk.minepi.com/pi-sdk.js" strategy="beforeInteractive" />
+      </head>
       <body className="font-sans antialiased">
         <AppWrapper>{children}</AppWrapper>
       </body>
