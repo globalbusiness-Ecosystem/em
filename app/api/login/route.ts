@@ -5,7 +5,7 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     const { pi_auth_token } = body;
 
-    const response = await fetch("https://api.testnet.minepi.com/v2/me", {
+    const response = await fetch("https://api.minepi.com/v2/me", {
       headers: {
         Authorization: `Bearer ${pi_auth_token}`,
       },
