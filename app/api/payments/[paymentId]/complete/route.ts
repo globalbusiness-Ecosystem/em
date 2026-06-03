@@ -4,7 +4,7 @@ export async function POST(request: NextRequest, { params }: { params: { payment
   try {
     const body = await request.json();
     const response = await fetch(
-      `https://api.testnet.minepi.com/v2/payments/${params.paymentId}/complete`,
+      `https://api.minepi.com/v2/payments/${params.paymentId}/complete`,
       {
         method: "POST",
         headers: {
